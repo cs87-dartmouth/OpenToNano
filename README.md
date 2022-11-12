@@ -7,7 +7,7 @@ brew install openvdb
 If you are on Linux we recommend you use:
 
 ```
-sudo apt install openvdb
+sudo apt install libopenvdb-dev
 ```
 
 Unfortunatly I (zack) do not use Windows machines so please refer to openvdb.org for how to set everything up for Windows.
