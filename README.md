@@ -13,7 +13,7 @@ sudo apt install openvdb
 Unfortunatly I (zack) do not use Windows machines so please refer to openvdb.org for how to set everything up for Windows.
 
 These commands should also install the dependencies needed for this tool, however, we have to manually set the paths to the include
-folders before building the project. To do so, open CMakeLists.txt and look for the lines setting `OPENVDB_INCLUDE_DIR`, `BOOST_INCLUDE_DIR`,
+folders before building the project. To do so, open `CMakeLists.txt` and look for the lines setting `OPENVDB_INCLUDE_DIR`, `BOOST_INCLUDE_DIR`,
 and `TBB_INCLUDE_DIR`. The paths which are currently there will not work for your machine so you will have to replace them. To find where
 they are located you should first update the locate database on your computer using the following command:
 
@@ -43,7 +43,7 @@ You will get many results, mostly of the form:
 prefix/{name}/{version}/postfix
 ```
 
-where {name} is either tbb, openvdb, or boost, and the version number will be dependent on what you have installed. You should overwrite what is in CMakeLists.txt with:
+where `{name}` is either `tbb`, `openvdb`, or `boost`, and the version number will be dependent on what you have installed. You should overwrite what is in `CMakeLists.txt` with:
 
 ```
 set(OPENVDB_INCLUDE_DIR
