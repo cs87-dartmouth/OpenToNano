@@ -74,6 +74,20 @@ jobs:
         with:
           key: ${{ matrix.config.os }}-${{ matrix.config.buildtype }}
 
+      - name: Install dependencies (macOS)
+        shell: bash
+        working-directory: ${{github.workspace}}
+        if: runner.os == 'macOS'
+        run: |
+          brew install openvdb
+
+      - name: Install dependencies (linux)
+        shell: bash
+        working-directory: ${{github.workspace}}
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt install libopenvdb-dev
+
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
 
