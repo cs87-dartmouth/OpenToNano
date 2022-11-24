@@ -8,11 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenVDB REQUIRED)
 
-file(GLOB OPENTONANO_SOURCE src/*.cpp)
-
-add_executable(
-  opentonano
-  # source files
-  ${OPENTONANO_SOURCE})
+add_executable(opentonano src/main.cpp)
 
 target_link_libraries(opentonano OpenVDB::openvdb)
