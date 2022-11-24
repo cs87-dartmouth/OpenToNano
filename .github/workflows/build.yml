@@ -10,7 +10,6 @@ on:
       - "**.h"
       - "**.cmake"
       - "**Lists.txt"
-
   workflow_dispatch:
 
 env:
