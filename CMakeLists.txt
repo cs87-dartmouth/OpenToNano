@@ -10,9 +10,9 @@ include(cmake/CPM.cmake)
 
 # find_package(OpenVDB REQUIRED)
 
-cpmaddpackage(
-  "https://github.com/AcademySoftwareFoundation/openvdb.git#v10.0.0")
-# if(openvdb_ADDED) target_include_directories( openvdb INTERFACE
+# cpmaddpackage(
+# "https://github.com/AcademySoftwareFoundation/openvdb.git#v10.0.0") #
+# if(openvdb_ADDED) target_include_directories( openvdb INTERFACE #
 # "$<BUILD_INTERFACE:${Imath_SOURCE_DIR}/src/*.h>") endif()
 
 cpmaddpackage(
@@ -23,6 +23,8 @@ cpmaddpackage(
   OPTIONS
   "OPENVDB_BUILD_CORE ON"
   "OPENVDB_BUILD_BINARIES OFF"
+  "OPENVDB_BUILD_NANOVDB ON"
+  "OPENVDB_USE_FUTURE_ABI_10 ON"
   "USE_NANOVDB ON"
   "NANOVDB_ALLOW_FETCHCONTENT ON"
   "NANOVDB_USE_ZLIB ON"
