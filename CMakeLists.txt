@@ -47,4 +47,4 @@ endif()
 
 add_executable(opentonano src/main.cpp)
 
-target_link_libraries(opentonano openvdb)
+target_link_libraries(opentonano openvdb nanovdb)
