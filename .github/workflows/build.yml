@@ -90,12 +90,19 @@ jobs:
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
 
-      - name: Configure CMake
+      - name: Configure CMake (macOS)
         shell: bash
         working-directory: ${{github.workspace}}
-        if: runner.os != 'Windows'
+        if: runner.os == 'macOS'
         run: |
           cmake -B ${{github.workspace}}/build/${{ matrix.config.buildtype }} -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.config.buildtype }} -D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache
+
+      - name: Configure CMake (Linux)
+        shell: bash
+        working-directory: ${{github.workspace}}
+        if: runner.os == 'Linux'
+        run: |
+          cmake -B ${{github.workspace}}/build/${{ matrix.config.buildtype }} -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.config.buildtype }} -D CMAKE_C_COMPILER_LAUNCHER=ccache -D CMAKE_CXX_COMPILER_LAUNCHER=ccache -DBOOST_ROOT=/usr/lib/x86_64-linux-gnu/
 
       - name: Configure CMake (Windows)
         working-directory: ${{github.workspace}}
