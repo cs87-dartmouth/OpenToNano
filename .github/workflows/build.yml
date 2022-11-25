@@ -85,7 +85,7 @@ jobs:
         working-directory: ${{github.workspace}}
         if: runner.os == 'Linux'
         run: |
-          sudo apt install libopenvdb-dev
+          sudo apt install libboost-all-dev libopenvdb-dev
 
       - name: Create Build Environment
         run: cmake -E make_directory ${{github.workspace}}/build
